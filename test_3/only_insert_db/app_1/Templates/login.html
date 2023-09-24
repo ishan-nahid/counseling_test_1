@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <center> <h1>Login Form</h1> </center>
+
+    <form action="#" class="login_form" method="post">
+        {% csrf_token %}
+        <center>
+            <table>
+                <tr>
+                    <td> <label for="email">E-Mail</label> </td>
+                    <td> <input type="text" placeholder="Enter Your E-mail" name="email" required> </td>
+                </tr>
+                <tr>
+                    <td> <label for="password">Password</label> </td>
+                    <td> <input type="password" placeholder="Enter Password" name="password" required> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Login</button>
+                        Don't have an account? <a href="http://localhost:8000/sign_up/">Sign UP</a>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+
+    <center>
+        {% if form.errors %}
+            <div class="error">
+                <strong>{{ form.errors }}</strong>
+            </div>
+        {% endif %}
+    </center>
+</body>
+</html>
